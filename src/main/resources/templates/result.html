@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+   <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
+    <title>Dashboard Template · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Accessibility Results</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <div class='my-legend'>
+                    <div class='legend-scale'>
+                        <ul class='legend-labels'>
+                            <li class="nav-item"><span style='background:#fc0909;'></span><p style="display:inline" th:text="${numberOfErrors}"></p> Errors</li>
+                            <li class="nav-item"><span style='background:#face0a;'></span><p style="display:inline" th:text="${numberOfWarnings}"></p> Warnings</li>
+                            <li class="nav-item"><span style='background:#3b26c4;'></span><p style="display:inline" th:text="${numberOfNotices}"></p> Notices</li>
+                            <li class="nav-item">
+                                <span style="border: none">
+                                    <form action="index">
+                                        <input type="submit" value="Main Page" />
+                                    </form>
+                                </span>
+                            </li>
+                        </ul>
+                        <style type='text/css'>
+                            .my-legend .legend-title {
+                                text-align: left;
+                                margin-bottom: 5px;
+                                font-weight: bold;
+                                font-size: 90%;
+                            }
+                            .my-legend .legend-scale ul {
+                                margin: 0;
+                                margin-bottom: 5px;
+                                padding: 0;
+                                float: left;
+                                list-style: none;
+                            }
+                            .my-legend .legend-scale ul li {
+                                font-size: 80%;
+                                list-style: none;
+                                margin-left: 0;
+                                line-height: 18px;
+                                margin-bottom: 2px;
+                            }
+                            .my-legend ul.legend-labels li span {
+                                display: block;
+                                float: left;
+                                height: 16px;
+                                width: 30px;
+                                margin-right: 5px;
+                                margin-left: 10px;
+                                border: 1px solid #999;
+                            }
+                            .my-legend .legend-source {
+                                font-size: 70%;
+                                color: #999;
+                                clear: both;
+                            }
+                            .my-legend a {
+                                color: #777;
+                            }
+                        </style>
+                    </div>
+                <!--<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Errors
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Warnings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            Notices
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">
+                            <form action="index">
+                                <input type="submit" value="Main Page" />
+                            </form>
+                        </a>
+                    </li>
+                </ul>-->
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+           <iframe width="100%" height="700px" th:srcdoc="${content}"></iframe>
+        </main>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="css/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="css/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="css/dashboard.js"></script></body>
+</html>
